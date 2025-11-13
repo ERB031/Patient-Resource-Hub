@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>ABLE Accounts · Patient Resource Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="hero hero--subpage" id="top">
+      <nav class="nav">
+        <div class="logo">
+          <a href="index.html" class="logo-link-wrapper">
+            <img
+              class="logo-mark"
+              src="images/Logo%20PRH.png"
+              alt="Patient Resource Hub logo"
+            />
+            <div>
+              <p class="logo-eyebrow">Patient Resource Hub</p>
+              <p class="logo-title">Resource Companion</p>
+            </div>
+          </a>
+        </div>
+        <div class="nav-actions">
+          <a class="nav-link" href="index.html#mission">Mission</a>
+          <a class="nav-link" href="index.html#resources">Resources</a>
+          <a class="nav-link" href="index.html#share">Share a resource</a>
+          <a
+            class="button button--ghost"
+            href="https://forms.gle/bgS2vJRJADpwZJFY7"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Submit a resource
+          </a>
+        </div>
+      </nav>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">ABLE Accounts</p>
+          <h1>Save for disability goals without losing essential benefits.</h1>
+          <p>
+            An ABLE Account is a tax-advantaged savings account that allows
+            individuals with disabilities to build savings without affecting
+            their eligibility for SSI, Medicaid, and other means-tested programs
+            (FAFSA, HUD, SNAP, etc.). Investment income grows tax-free, and
+            anyone can contribute—including friends, caregivers, and family.
+          </p>
+          <p>
+            The first $100,000 in an ABLE account do not count toward SSI’s
+            resource limit. If your balance climbs higher, SSI payments pause,
+            but Medicaid continues; once the balance falls below $100,000, SSI
+            restarts without a new application.
+          </p>
+          <div class="hero-ctas">
+            <a class="button" href="#able-details">Review requirements</a>
+            <button
+              class="button button--ghost"
+              type="button"
+              data-state-toggle
+              aria-controls="able-states"
+              aria-expanded="false"
+              data-expanded-label="Hide state programs"
+            >
+              Browse state programs
+            </button>
+            <a class="button button--ghost" href="index.html">Back to hub</a>
+          </div>
+        </div>
+        <div
+          class="hero-visual hero-visual--glossary"
+          role="img"
+          aria-label="Illustration referencing savings, benefits, and planning"
+        ></div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="able-details" id="able-details">
+        <div class="able-details__intro">
+          <p class="eyebrow">Deep dive</p>
+          <h2>Learn more about ABLE Accounts:</h2>
+          <p>
+            Expand each section to match the official Patient Resource Hub
+            Notion guide on ABLE rules—eligibility, contributions, spending
+            rules, work considerations, and college planning.
+          </p>
+        </div>
+        <div class="able-accordion" aria-label="ABLE Account topics">
+          <details class="able-accordion__item" open>
+            <summary>Eligibility</summary>
+            <div class="able-accordion__content">
+              <p>You are eligible to open an ABLE account if:</p>
+              <ol>
+                <li>
+                  You have a disability with onset prior to your 26th birthday
+                  <sup>1</sup>.
+                </li>
+                <li>
+                  You meet the severity of disability requirement by:
+                  <ol type="a">
+                    <li>Receiving SSI or SSDI.</li>
+                    <li>
+                      Having your doctor complete a
+                      <a
+                        href="https://www.ablenrc.org/wp-content/uploads/2020/10/spt-able-disability-certification.pdf"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        disability certification
+                      </a>
+                      affirming “marked and severe” functional limitations that
+                      are expected to last at least 12 months or result in death
+                      <sup>2</sup>.
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+              <p>You cannot have more than one ABLE account.</p>
+              <p>
+                Not all states run ABLE programs, and some offer extra perks
+                like tax deductions or ABLE-linked debit cards.
+                <a
+                  href="https://www.ablenrc.org/compare-states/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Compare current state programs
+                </a>
+                to see what is available or accepting out-of-state applicants.
+              </p>
+              <p>
+                You can open an account in any state program as long as you meet
+                its eligibility criteria and the program is open to out-of-state
+                enrollment.
+              </p>
+              <p>
+                If your disability began before age 26, but SSA recorded an onset
+                date after age 26 for SSI or SSDI, you can still pursue an ABLE
+                account with a physician certification confirming when your
+                disability actually began and that it meets SSA’s definition of
+                significant functional limitations. <em>SSA staff are not
+                responsible for determining ABLE onset dates.</em>
+              </p>
+              <p>
+                Congress is considering legislation to raise the age-of-onset
+                cutoff to 46.
+                <a
+                  href="https://nast.org/able-act/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Support the ABLE Age Adjustment Act
+                </a>
+                if it would help you or your community.
+              </p>
+              <div class="able-accordion__footnotes">
+                <p>
+                  <sup>1</sup> You do not have to be under age 26 today—your
+                  disability simply needs to have started before your 26th
+                  birthday.
+                </p>
+                <p>
+                  <sup>2</sup> If you no longer meet disability criteria, your
+                  ABLE account stays open until year-end. After that, new
+                  contributions stop and withdrawals count as non-qualified,
+                  which means they are taxable and may affect benefits.
+                </p>
+              </div>
+            </div>
+          </details>
+
+          <details class="able-accordion__item">
+            <summary>Contributions</summary>
+            <div class="able-accordion__content">
+              <p>
+                Any person <sup>1</sup> can contribute to an ABLE account,
+                including friends, family, and community members.
+              </p>
+              <p>
+                Contributions must be made with post-tax dollars. They are not
+                federally tax deductible, though some states offer deductions or
+                credits for their programs.
+              </p>
+              <p class="able-accordion__label">Contribution limits</p>
+              <ul>
+                <li>
+                  Combined deposits from all contributors (you, family, friends,
+                  etc.) are capped at $15,000 per tax year.
+                </li>
+                <li>
+                  Lifetime caps depend on the state program and currently range
+                  from $235,000 to $589,000.
+                </li>
+              </ul>
+              <p>
+                Most programs offer multiple investment portfolios and allow two
+                changes per year to your investment mix.
+              </p>
+              <div class="able-accordion__footnotes">
+                <p>
+                  <sup>1</sup> The IRS defines a
+                  <a
+                    href="https://www.irs.gov/pub/irs-drop/rr-07-22.pdf"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    “person”
+                  </a>
+                  as an individual, trust, estate, partnership, association,
+                  company, or corporation—not just a single human.
+                </p>
+              </div>
+            </div>
+          </details>
+
+          <details class="able-accordion__item">
+            <summary>Spending</summary>
+            <div class="able-accordion__content">
+              <p>
+                ABLE funds must be used for qualified disability expenses (QDEs).
+              </p>
+              <p>
+                QDEs cover essentials like education, food, housing,
+                transportation, employment training and support, assistive
+                technology, personal support services, healthcare costs,
+                financial management, administrative services, and other
+                expenses that improve health, independence, or quality of life.
+              </p>
+              <p>
+                Review the
+                <a
+                  href="https://www.ablenrc.org/qualified-disability-expense-fundamentals/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  ABLE National Resource Center QDE guidance
+                </a>
+                for more detail.
+              </p>
+              <p>
+                Some state programs offer debit cards for easier spending.
+                Otherwise you can transfer funds to a checking account, though a
+                holding period may apply.
+              </p>
+              <p>
+                Once money leaves the ABLE account and sits in a checking
+                account, it can count toward asset limits—avoid keeping large
+                transfers unspent for too long.
+              </p>
+            </div>
+          </details>
+
+          <details class="able-accordion__item">
+            <summary>Employment</summary>
+            <div class="able-accordion__content">
+              <p>
+                ABLE accounts increase allowable savings; they do not change how
+                SSA treats earned income. Wages continue to affect benefits the
+                same way, even if you move that income into an ABLE account.
+              </p>
+              <p>
+                The ABLE to Work provision lets employed account holders exceed
+                the $15,000 annual contribution limit. You can deposit an
+                additional $12,760 <sup>1</sup> (or your gross income for the
+                year, whichever is lower).
+              </p>
+              <div class="able-accordion__footnotes">
+                <p>
+                  <sup>1</sup> The extra allowance is $15,950 in Alaska and
+                  $14,680 in Hawaii.
+                </p>
+              </div>
+            </div>
+          </details>
+
+          <details class="able-accordion__item">
+            <summary>College</summary>
+            <div class="able-accordion__content">
+              <p>
+                The
+                <a
+                  href="https://studentaid.gov/sites/default/files/2020-21-fafsa.pdf"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  FAFSA application
+                </a>
+                excludes ABLE balances from the assets it counts.
+              </p>
+              <p>
+                You can roll over money from a 529 college savings plan into an
+                ABLE account without taxes or penalties as long as both accounts
+                are held by you (or a qualified family member) and the rollover
+                stays within the annual ABLE contribution limit.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="able-states" id="able-states" data-able-states hidden>
+        <div class="able-states__intro">
+          <p class="eyebrow">State programs</p>
+          <h2>Compare ABLE program details for every state</h2>
+          <p>
+            Tap a state flag to see enrollment status, fees, contribution limits,
+            and whether out-of-state residents can participate. Data mirrors the
+            Patient Resource Hub Notion database linked above.
+          </p>
+        </div>
+        <div class="state-tabs" data-state-tabs>
+          <div
+            class="state-tabs__list"
+            role="tablist"
+            aria-label="ABLE programs by state"
+            data-state-tab-list
+          ></div>
+          <div class="state-tabs__panels" data-state-panels></div>
+        </div>
+      </section>
+    </main>
+    <script src="able-state-data.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

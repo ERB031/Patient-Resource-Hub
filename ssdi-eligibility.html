@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>SSDI Eligibility · Patient Resource Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="hero hero--subpage" id="top">
+      <nav class="nav">
+        <div class="logo">
+          <a href="index.html" class="logo-link-wrapper">
+            <img
+              class="logo-mark"
+              src="images/Logo%20PRH.png"
+              alt="Patient Resource Hub logo"
+            />
+            <div>
+              <p class="logo-eyebrow">Patient Resource Hub</p>
+              <p class="logo-title">Resource Companion</p>
+            </div>
+          </a>
+        </div>
+        <div class="nav-actions">
+          <a class="nav-link" href="index.html#mission">Mission</a>
+          <a class="nav-link" href="index.html#resources">Resources</a>
+          <a class="nav-link" href="index.html#share">Share a resource</a>
+          <a
+            class="button button--ghost"
+            href="https://forms.gle/bgS2vJRJADpwZJFY7"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Submit a resource
+          </a>
+        </div>
+      </nav>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Disability Benefits</p>
+          <h1>SSDI Eligibility</h1>
+          <p>
+            Review the work history and medical condition requirements for Social Security Disability Insurance.
+          </p>
+          <div class="hero-ctas">
+            <a class="button button--ghost" href="disability-benefits.html">Back to disability benefits</a>
+          </div>
+        </div>
+        <div
+          class="hero-visual hero-visual--glossary"
+          role="img"
+          aria-label="SSDI eligibility requirements illustration"
+        ></div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="content-section">
+        <div class="prose">
+          <h2>SSDI Eligibility</h2>
+
+          <p>You are eligible for <a href="https://www.ssa.gov/pubs/EN-05-10029.pdf" target="_blank" rel="noreferrer noopener">SSDI</a> if:</p>
+
+          <ol>
+            <li>You have worked long enough (and recently enough) in a job covered by Social Security:
+              <ul>
+                <li>Social Security <a href="https://www.ssa.gov/benefits/retirement/planner/credits.html" target="_blank" rel="noreferrer noopener">work credits</a> are based on your total yearly wages or self-employment income. You can earn up to four credits each year. In 2021, 1 credit = $1,470 in wages or self-employment income. <a href="https://www.ssa.gov/pubs/EN-05-10072.pdf" target="_blank" rel="noreferrer noopener">Some jobs have special rules regarding work credits.</a></li>
+                <li>The number of work credits you need to qualify for SSDI depends on your age when you become disabled:
+                  <ul>
+                    <li><strong>Under 24:</strong> you need at least 6 credits earned in the 3-year period before your disability started</li>
+                    <li><strong>24 to 31:</strong> you need credits for working at least half the time between age 21 and the time you become disabled (for example, if you become disabled at age 27, you would need 3 years of work (12 credits) out of the past 6 years (between ages 21 and 27))</li>
+                    <li><strong>31 &amp; older:</strong> you need at least 20 credits in the 10-year period immediately before you become disabled</li>
+                  </ul>
+                  See <a href="https://www.ssa.gov/benefits/retirement/planner/credits.html" target="_blank" rel="noreferrer noopener">this chart</a> for an <em>estimate</em> of how many work years you need to qualify for SSDI.
+                  <br><br>
+                  Note: when statutory blindness is involved, there is not a recent work test requirement.
+                </li>
+              </ul>
+            </li>
+            <li>You have a medical condition that meets Social Security's definition of disability:
+              <ul>
+                <li>The definition of disability for Social Security is different than other programs. Social Security only pays for total disability (partial disability or short-term disability do not qualify). SSA will consider you disabled if:
+                  <ul>
+                    <li>you cannot do work that you did before because of your medical condition</li>
+                    <li>you cannot adjust to other work because of your medical condition</li>
+                    <li>your disability has lasted (or is expected to last) for at least 1 year or result in death</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ol>
+
+          <p>If you appear to meet these requirements, your case will move on to the <a href="https://www.notion.so/Disability-Determination-for-Adults-3159dc265a394aedb357356588997989?pvs=21" target="_blank" rel="noreferrer noopener">disability determination</a> process.</p>
+
+          <p>If you are approved for SSDI, certain members of your household may be eligible for <a href="https://www.notion.so/Family-Benefits-fab7dd27c18a47cfa7059344be9e2393?pvs=21" target="_blank" rel="noreferrer noopener">family benefits</a>.</p>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="cta-card">
+          <h2>Share a missing disability benefit tip</h2>
+          <p>
+            Your real-life experience navigating SSA paperwork can help someone else feel less alone.
+            Submit your go-to explainer, video, or checklist.
+          </p>
+          <a class="button" href="https://forms.gle/bgS2vJRJADpwZJFY7" target="_blank" rel="noreferrer noopener">
+            Submit a resource
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Patient Resource Hub · Community-built support.</p>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
