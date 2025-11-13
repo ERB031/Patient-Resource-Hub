@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>SOC Learning Materials · Patient Resource Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="hero hero--subpage" id="top">
+      <nav class="nav">
+        <a class="logo" href="index.html">
+          <img
+            class="logo-mark"
+            src="images/Logo%20PRH.png"
+            alt="Patient Resource Hub logo"
+          />
+          <div>
+            <p class="logo-eyebrow">Patient Resource Hub</p>
+            <p class="logo-title">Resource Companion</p>
+          </div>
+        </a>
+        <div class="nav-actions">
+          <a class="nav-link" href="index.html#mission">Mission</a>
+          <a class="nav-link" href="index.html#resources">Resources</a>
+          <a
+            class="button button--ghost"
+            href="https://forms.gle/bgS2vJRJADpwZJFY7"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Submit a resource
+          </a>
+        </div>
+      </nav>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Social determinants of health</p>
+          <h1>
+            <a class="page-title-link" href="soc-learning-materials.html">SOC Learning Materials</a>
+          </h1>
+          <p>
+            This is the full reading room for the Standard of Care project&mdash;a
+            crowdsourced bibliography covering inequities, lived experience, and
+            practitioner-facing research across every determinant highlighted in
+            the hub.
+          </p>
+          <ul>
+            <li>Search any title, topic tag, or keyword across 900+ entries.</li>
+            <li>Filter by resource type to jump to articles, reports, podcasts, or databases.</li>
+            <li>Click the title column to open the resource in a new tab.</li>
+          </ul>
+          <div class="hero-ctas">
+            <a class="button button--ghost" href="standard-of-care.html">Back to Standard of Care</a>
+            <a
+              class="button"
+              href="https://forms.gle/bgS2vJRJADpwZJFY7"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Contribute a resource
+            </a>
+          </div>
+        </div>
+        <div
+          class="hero-visual hero-visual--glossary"
+          role="img"
+          aria-label="Illustration of open books and research notes"
+        ></div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="content-section">
+        <div class="prose">
+          <p class="tagline">A living bibliography for health equity</p>
+          <h2>How to use this library</h2>
+          <p>
+            The materials below mirror the Notion database and were last synced on
+            <strong>November 13, 2025</strong>. Every record retains its original tags so you can see whether it
+            speaks to race, gender, incarceration, cost, geography, or other intersecting determinants.
+          </p>
+          <p>
+            Looking for something specific? Use the keyword search to match any
+            word in the title, subject tags, or resource type. The type filter helps
+            you focus on policy briefs versus journal articles, podcasts, videos, or
+            databases.
+          </p>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="materials-controls" aria-label="SOC Learning Materials filters">
+          <label class="filter-field">
+            <span>Search library</span>
+            <input
+              id="material-search"
+              type="search"
+              placeholder="Search by keyword or topic"
+              autocomplete="off"
+            />
+          </label>
+          <label class="filter-field">
+            <span>Filter by type</span>
+            <select id="type-filter">
+              <option value="">All types</option>
+            </select>
+          </label>
+          <button class="button button--ghost button--compact" type="button" id="reset-filters">
+            Reset filters
+          </button>
+        </div>
+        <p class="results-count" id="results-count" aria-live="polite"></p>
+        <div class="table-wrapper" role="region" aria-label="SOC Learning Materials table">
+          <table class="materials-table">
+            <caption class="sr-only">SOC Learning Materials</caption>
+            <thead>
+              <tr>
+                <th scope="col" data-sort-key="resource" aria-sort="none">
+                  <button class="sort-button" type="button" data-sort-key="resource">
+                    Resource
+                    <span class="sort-icon" aria-hidden="true">↕</span>
+                  </button>
+                </th>
+                <th scope="col" data-sort-key="type" aria-sort="none">
+                  <button class="sort-button" type="button" data-sort-key="type">
+                    Type
+                    <span class="sort-icon" aria-hidden="true">↕</span>
+                  </button>
+                </th>
+                <th scope="col" data-sort-key="topics" aria-sort="none">
+                  <button class="sort-button" type="button" data-sort-key="topics">
+                    Topics
+                    <span class="sort-icon" aria-hidden="true">↕</span>
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="materials-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="cta-card">
+          <h2>Help the collection grow</h2>
+          <p>
+            Community submissions keep this reading list current. Share reports,
+            curricula, trainings, or case law that help patients advocate for the care
+            they deserve.
+          </p>
+          <a
+            class="button"
+            href="https://forms.gle/bgS2vJRJADpwZJFY7"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Submit a resource
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Patient Resource Hub · Community-built support.</p>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <script src="soc-learning-materials-data.js" defer></script>
+    <script src="soc-learning-materials.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

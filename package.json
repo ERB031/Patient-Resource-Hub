@@ -1,0 +1,12 @@
+{
+  "name": "patient-resource-hub",
+  "version": "1.0.0",
+  "description": "Patient Resource Hub - Community-built support for chronically ill & disabled patients",
+  "scripts": {
+    "build:search": "node build-search-index.js",
+    "serve": "python3 -m http.server 8080"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.1"
+  }
+}
