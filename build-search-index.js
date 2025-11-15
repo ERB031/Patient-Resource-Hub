@@ -16,9 +16,15 @@ const pagesToIndex = [
   'ssi-eligibility.html',
   'ssi-eligibility-for-children.html',
   'disability-determination-for-adults.html',
+  'disability-determination-for-children.html',
   'ssi-ssdi-differences.html',
   'reporting-to-ssa.html',
-  'healthcare-while-incarcerated.html'
+  'healthcare-while-incarcerated.html',
+  'income-requirements.html',
+  'aids-drug-assistance-programs.html',
+  'soc-learning-materials.html',
+  'gender-bias-in-medicine.html',
+  'weight-stigma-in-medicine.html'
 ];
 
 const searchIndex = [];

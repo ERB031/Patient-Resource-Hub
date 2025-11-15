@@ -57,11 +57,14 @@
             <a class="button button--ghost" href="index.html#resources">Back to main resources</a>
           </div>
         </div>
-        <div
-          class="hero-visual hero-visual--glossary"
-          role="img"
-          aria-label="Illustration representing prescription drug assistance"
-        ></div>
+        <div class="hero-visual hero-visual--logo">
+          <img
+            src="images/adap-advocacy-logo.jpg"
+            alt="ADAP Advocacy Association logo"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
       </div>
     </header>
 
@@ -83,11 +86,18 @@
           </p>
           <h3>Click your state or territory</h3>
           <p>
-            Each card opens the corresponding Patient Resource Hub guide in a new tab. Flags are included to make
-            scanning for your home state even faster.
+            Click on any state to expand details about program contact information, eligibility requirements, and application links. Flags are included to make scanning for your home state even faster.
           </p>
         </div>
-        <div class="adap-state-grid">
+        <div class="state-accordion" id="adap-state-accordion" aria-label="ADAP programs by state">
+          <!-- State accordions will be populated by JavaScript -->
+        </div>
+        <noscript>
+          <p>JavaScript is required to view state-specific information. Please enable JavaScript in your browser.</p>
+        </noscript>
+
+        <!-- Fallback: Original links (hidden by default, shown if JS fails) -->
+        <div class="adap-state-grid adap-state-fallback" style="display: none;">
           <ul class="adap-state-list">
         <li class="adap-state-card">
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Alabama.svg" alt="Flag of Alabama" loading="lazy" decoding="async" />
@@ -327,6 +337,7 @@
         </li>
           </ul>
         </div>
+        </div>
       </section>
 
       <section class="cta">
@@ -348,6 +359,7 @@
       <a href="#top">Back to top</a>
     </footer>
 
+    <script src="adap-state-data.js" defer></script>
     <script src="script.js" defer></script>
   </body>
 </html>

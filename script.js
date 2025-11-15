@@ -382,3 +382,195 @@ const initAccordion = () => {
 if (document.querySelector('.medicaid-accordion')) {
   initAccordion();
 }
+
+// ============================================
+// STATE ACCORDIONS - Medicaid & ADAP
+// ============================================
+
+// Initialize Medicaid state accordions
+function initMedicaidStateAccordions() {
+  const container = document.getElementById('medicaid-state-accordion');
+  if (!container || typeof medicaidStateData === 'undefined') return;
+
+  medicaidStateData.forEach((state, index) => {
+    const details = document.createElement('details');
+    details.className = 'state-accordion__item';
+
+    const summary = document.createElement('summary');
+    summary.className = 'state-accordion__header';
+    summary.innerHTML = `
+      <img src="${state.flag}" alt="${state.state} flag" class="state-accordion__flag" />
+      <span class="state-accordion__name">${state.state}</span>
+      <span class="state-accordion__icon" aria-hidden="true">+</span>
+    `;
+
+    const content = document.createElement('div');
+    content.className = 'state-accordion__content';
+
+    let contentHTML = '';
+
+    // Eligibility section
+    if (state.eligibility) {
+      contentHTML += '<div class="state-accordion__section">';
+      contentHTML += '<h4>Eligibility</h4>';
+      if (state.eligibility.description) {
+        contentHTML += `<p>${state.eligibility.description}</p>`;
+      }
+      if (state.eligibility.categories && state.eligibility.categories.length > 0) {
+        contentHTML += '<p><strong>Eligible categories:</strong></p><ul>';
+        state.eligibility.categories.forEach(cat => {
+          contentHTML += `<li>${cat}</li>`;
+        });
+        contentHTML += '</ul>';
+      }
+      contentHTML += '</div>';
+    }
+
+    // Waivers section
+    if (state.waiversDescription || state.waiverPrograms) {
+      contentHTML += '<div class="state-accordion__section">';
+      contentHTML += '<h4>Home & Community Based Waivers</h4>';
+      if (state.waiversDescription) {
+        contentHTML += `<p>${state.waiversDescription}</p>`;
+      }
+      if (state.waiverPrograms && state.waiverPrograms.length > 0) {
+        contentHTML += '<ul>';
+        state.waiverPrograms.forEach(program => {
+          contentHTML += `<li><a href="${program.url}" target="_blank" rel="noreferrer noopener">${program.name}</a></li>`;
+        });
+        contentHTML += '</ul>';
+      }
+      contentHTML += '</div>';
+    }
+
+    // Nursing home allowance
+    if (state.nursingHomePersonalAllowance) {
+      contentHTML += '<div class="state-accordion__section">';
+      contentHTML += '<h4>Nursing Home Personal Allowance</h4>';
+      contentHTML += `<p>${state.nursingHomePersonalAllowance}</p>`;
+      contentHTML += '</div>';
+    }
+
+    // More information link
+    contentHTML += '<div class="state-accordion__section">';
+    contentHTML += `<p><a href="notion-pages/medicaid/states/${state.state.toLowerCase().replace(/\s+/g, '-')}.html" target="_blank" rel="noreferrer noopener" class="state-accordion__link">View full ${state.state} Medicaid details →</a></p>`;
+    contentHTML += '</div>';
+
+    content.innerHTML = contentHTML;
+
+    details.appendChild(summary);
+    details.appendChild(content);
+    container.appendChild(details);
+
+    // Toggle icon on open/close
+    details.addEventListener('toggle', () => {
+      const icon = summary.querySelector('.state-accordion__icon');
+      if (details.open) {
+        icon.textContent = '−';
+      } else {
+        icon.textContent = '+';
+      }
+    });
+  });
+}
+
+// Initialize ADAP state accordions
+function initADAPStateAccordions() {
+  const container = document.getElementById('adap-state-accordion');
+  if (!container || typeof adapStateData === 'undefined') return;
+
+  adapStateData.forEach((state, index) => {
+    const details = document.createElement('details');
+    details.className = 'state-accordion__item';
+
+    const summary = document.createElement('summary');
+    summary.className = 'state-accordion__header';
+    summary.innerHTML = `
+      <img src="${state.flag}" alt="${state.state} flag" class="state-accordion__flag" />
+      <span class="state-accordion__name">${state.state}</span>
+      <span class="state-accordion__icon" aria-hidden="true">+</span>
+    `;
+
+    const content = document.createElement('div');
+    content.className = 'state-accordion__content';
+
+    let contentHTML = '';
+
+    // Eligibility section
+    if (state.eligibility && state.eligibility.length > 0) {
+      contentHTML += '<div class="state-accordion__section">';
+      contentHTML += '<h4>Eligibility Requirements</h4>';
+      contentHTML += '<div class="state-accordion__tags">';
+      state.eligibility.forEach(req => {
+        contentHTML += `<span class="state-accordion__tag">${req}</span>`;
+      });
+      contentHTML += '</div>';
+      contentHTML += '</div>';
+    }
+
+    // Contact section
+    if (state.contact) {
+      contentHTML += '<div class="state-accordion__section">';
+      contentHTML += '<h4>Contact Information</h4>';
+
+      if (state.contact.address) {
+        contentHTML += `<p><strong>Address:</strong><br>${state.contact.address}</p>`;
+      }
+      if (state.contact.phone) {
+        contentHTML += `<p><strong>Phone:</strong> <a href="tel:${state.contact.phone.replace(/[^0-9]/g, '')}">${state.contact.phone}</a></p>`;
+      }
+      if (state.contact.fax) {
+        contentHTML += `<p><strong>Fax:</strong> ${state.contact.fax}</p>`;
+      }
+      if (state.contact.email) {
+        contentHTML += `<p><strong>Email:</strong> <a href="mailto:${state.contact.email}">${state.contact.email}</a></p>`;
+      }
+      contentHTML += '</div>';
+    }
+
+    // Application section
+    if (state.applicationLink || state.onlineForm) {
+      contentHTML += '<div class="state-accordion__section">';
+      contentHTML += '<h4>Apply</h4>';
+      if (state.onlineForm) {
+        contentHTML += `<p><a href="${state.onlineForm}" target="_blank" rel="noreferrer noopener" class="button">Apply Online</a></p>`;
+      }
+      if (state.applicationLink && state.applicationLink !== state.onlineForm) {
+        contentHTML += `<p><a href="${state.applicationLink}" target="_blank" rel="noreferrer noopener">Download Application</a></p>`;
+      }
+      contentHTML += '</div>';
+    }
+
+    // Program website
+    if (state.programLink) {
+      contentHTML += '<div class="state-accordion__section">';
+      contentHTML += `<p><a href="${state.programLink}" target="_blank" rel="noreferrer noopener" class="state-accordion__link">Visit ${state.state} ADAP Program Website →</a></p>`;
+      contentHTML += '</div>';
+    }
+
+    content.innerHTML = contentHTML;
+
+    details.appendChild(summary);
+    details.appendChild(content);
+    container.appendChild(details);
+
+    // Toggle icon on open/close
+    details.addEventListener('toggle', () => {
+      const icon = summary.querySelector('.state-accordion__icon');
+      if (details.open) {
+        icon.textContent = '−';
+      } else {
+        icon.textContent = '+';
+      }
+    });
+  });
+}
+
+// Initialize state accordions when DOM is ready
+if (document.getElementById('medicaid-state-accordion')) {
+  initMedicaidStateAccordions();
+}
+
+if (document.getElementById('adap-state-accordion')) {
+  initADAPStateAccordions();
+}
