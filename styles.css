@@ -226,6 +226,19 @@ a:focus-visible {
   background: white;
 }
 
+.hero-visual--logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-visual--logo img {
+  width: 80%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+}
+
 .eyebrow {
   font-size: 0.75rem;
   text-transform: uppercase;
