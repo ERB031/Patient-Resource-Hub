@@ -58,13 +58,102 @@
             requirements, meaning that eligibility, costs, and coverage vary between
             states. For General information about Medicaid, see the links below:
           </p>
-          <ul class="medicaid-topics">
-            <li>Eligibility</li>
-            <li>Apply for Medicaid</li>
-            <li>Cost Sharing</li>
-            <li>Coverage</li>
-            <li>FAQ</li>
-          </ul>
+          <div class="medicaid-accordion">
+            <button class="accordion-button" data-section="eligibility" aria-expanded="false">
+              <span>Eligibility</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content" id="eligibility">
+              <div class="accordion-inner">
+                <h3>Medicaid Eligibility</h3>
+                <p>Medicaid eligibility varies by state but generally includes:</p>
+                <ul>
+                  <li>Low-income adults, children, and pregnant women</li>
+                  <li>Elderly adults and people with disabilities</li>
+                  <li>People who need long-term care</li>
+                </ul>
+                <p>States that expanded Medicaid under the Affordable Care Act cover adults under 65 with incomes up to 138% of the federal poverty level.</p>
+                <p><a href="https://www.medicaid.gov/medicaid/eligibility/index.html" target="_blank" rel="noreferrer noopener">Learn more about Medicaid eligibility →</a></p>
+              </div>
+            </div>
+
+            <button class="accordion-button" data-section="apply" aria-expanded="false">
+              <span>Apply for Medicaid</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content" id="apply">
+              <div class="accordion-inner">
+                <h3>How to Apply for Medicaid</h3>
+                <p>You can apply for Medicaid several ways:</p>
+                <ul>
+                  <li>Through the Health Insurance Marketplace at <a href="https://www.healthcare.gov" target="_blank" rel="noreferrer noopener">HealthCare.gov</a></li>
+                  <li>Directly through your state Medicaid agency</li>
+                  <li>By contacting your local Medicaid office</li>
+                </ul>
+                <p>The application process requires documentation of your income, household size, citizenship or immigration status, and other qualifying factors.</p>
+                <p><a href="https://www.medicaid.gov/medicaid/how-to-apply/index.html" target="_blank" rel="noreferrer noopener">Get help applying for Medicaid →</a></p>
+              </div>
+            </div>
+
+            <button class="accordion-button" data-section="cost-sharing" aria-expanded="false">
+              <span>Cost Sharing</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content" id="cost-sharing">
+              <div class="accordion-inner">
+                <h3>Medicaid Cost Sharing</h3>
+                <p>Medicaid services are generally free or low-cost. Some states may require:</p>
+                <ul>
+                  <li>Small copayments for certain services</li>
+                  <li>Monthly premiums (usually for higher-income enrollees)</li>
+                  <li>Deductibles in some cases</li>
+                </ul>
+                <p>Children, pregnant women, and people receiving long-term care services typically do not have cost-sharing requirements.</p>
+                <p><a href="https://www.medicaid.gov/medicaid/cost-sharing/index.html" target="_blank" rel="noreferrer noopener">Learn more about Medicaid costs →</a></p>
+              </div>
+            </div>
+
+            <button class="accordion-button" data-section="coverage" aria-expanded="false">
+              <span>Coverage</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content" id="coverage">
+              <div class="accordion-inner">
+                <h3>What Medicaid Covers</h3>
+                <p>Medicaid provides comprehensive health coverage, including:</p>
+                <ul>
+                  <li>Doctor visits and hospital care</li>
+                  <li>Prescription drugs</li>
+                  <li>Preventive care and screenings</li>
+                  <li>Mental health and substance use services</li>
+                  <li>Long-term care services</li>
+                  <li>Pregnancy and childbirth care</li>
+                </ul>
+                <p>Coverage details vary by state. Some states offer additional benefits beyond federal requirements.</p>
+                <p><a href="https://www.medicaid.gov/medicaid/benefits/index.html" target="_blank" rel="noreferrer noopener">See full list of Medicaid benefits →</a></p>
+              </div>
+            </div>
+
+            <button class="accordion-button" data-section="faq" aria-expanded="false">
+              <span>FAQ</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content" id="faq">
+              <div class="accordion-inner">
+                <h3>Frequently Asked Questions</h3>
+                <p><strong>Q: Is Medicaid the same as Medicare?</strong></p>
+                <p>A: No. Medicaid is for people with limited income, while Medicare is for people 65+ or with certain disabilities.</p>
+
+                <p><strong>Q: Can I have both Medicaid and Medicare?</strong></p>
+                <p>A: Yes. People who qualify for both are called "dual eligibles."</p>
+
+                <p><strong>Q: What happens if I move to another state?</strong></p>
+                <p>A: You'll need to reapply for Medicaid in your new state, as each state runs its own program.</p>
+
+                <p><a href="https://www.medicaid.gov/medicaid/faqs/index.html" target="_blank" rel="noreferrer noopener">View more FAQs →</a></p>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="hero-visual hero-visual--glossary hero-visual--logo">
           <img
@@ -79,10 +168,17 @@
       <section class="content-section">
         <div class="prose">
           <p>
-            For information about your state's specific programs, find your state on the
-            list below.
+            For information about your state's specific programs, click on your state below to expand details about eligibility, waivers, and contact information.
           </p>
-          <ul class="state-directory__grid" aria-label="Medicaid guides by state">
+          <div class="state-accordion" id="medicaid-state-accordion" aria-label="Medicaid programs by state">
+            <!-- State accordions will be populated by JavaScript -->
+          </div>
+          <noscript>
+            <p>JavaScript is required to view state-specific information. Please enable JavaScript in your browser.</p>
+          </noscript>
+
+          <!-- Fallback: Original links (hidden by default, shown if JS fails) -->
+          <ul class="state-directory__grid state-directory__fallback" aria-label="Medicaid guides by state" style="display: none;">
             <li>
               <a
                 href="notion-pages/medicaid/states/alabama.html"
@@ -588,5 +684,7 @@
         </div>
       </section>
     </main>
+    <script src="medicaid-state-data.js" defer></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
