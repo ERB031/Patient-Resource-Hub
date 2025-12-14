@@ -227,8 +227,12 @@ function renderBlock(block, ctx, seenAlias) {
 
 function buildTemplate({ title, notionUrl, bodyHtml, outputPath }) {
   const outputDir = path.dirname(outputPath);
-  const relStyles = toPosix(path.relative(outputDir, 'styles.css') || 'styles.css');
-  const relScript = toPosix(path.relative(outputDir, 'script.js') || 'script.js');
+  const relStyles = toPosix(
+    path.relative(outputDir, 'assets/css/styles.css') || 'assets/css/styles.css',
+  );
+  const relScript = toPosix(
+    path.relative(outputDir, 'assets/js/script.js') || 'assets/js/script.js',
+  );
   const relIndex = toPosix(path.relative(outputDir, 'index.html') || 'index.html');
   const relLogo = toPosix(path.relative(outputDir, 'images/Logo%20PRH.png'));
   return `<!DOCTYPE html>

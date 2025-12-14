@@ -178,6 +178,66 @@ const formatBooleanValue = (value) => {
   return 'Not available yet';
 };
 
+const createStateSlug = (label) => {
+  if (!label) return '';
+  return label
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+};
+
+const formatMultilineText = (text) => {
+  if (typeof text !== 'string') return text;
+  return text.replace(/\n/g, '<br />');
+};
+
+const buildEligibilityBlock = (state) => {
+  const eligibility = state.eligibility;
+  if (!eligibility) return '';
+  const categories = Array.isArray(eligibility.categories) ? eligibility.categories : [];
+
+  let html = '<div class="state-panel__section">';
+  html += '<h4>Eligibility</h4>';
+  if (eligibility.description) {
+    html += `<p>${formatMultilineText(eligibility.description)}</p>`;
+  }
+  if (categories.length) {
+    html += '<ul>';
+    categories.forEach((cat) => {
+      html += `<li>${cat}</li>`;
+    });
+    html += '</ul>';
+  }
+  html += '</div>';
+
+  return html;
+};
+
+const buildWaiverBlock = (state) => {
+  const programs = Array.isArray(state.waiverPrograms) ? state.waiverPrograms : [];
+  if (!state.waiversDescription && !programs.length) return '';
+
+  let html = '<div class="state-panel__section">';
+  html += '<h4>Home & community-based waivers</h4>';
+  if (state.waiversDescription) {
+    html += `<p>${formatMultilineText(state.waiversDescription)}</p>`;
+  }
+  if (programs.length) {
+    html += '<ul>';
+    programs.forEach((program) => {
+      if (program.url) {
+        html += `<li><a href="${program.url}" target="_blank" rel="noreferrer noopener">${program.name}</a></li>`;
+      } else if (program.name) {
+        html += `<li>${program.name}</li>`;
+      }
+    });
+    html += '</ul>';
+  }
+  html += '</div>';
+
+  return html;
+};
+
 const initStateTabs = () => {
   if (!stateSection || !stateTabsWrapper || !statePanelsWrapper || !ableStateData.length) {
     if (stateSection) {
@@ -190,11 +250,16 @@ const initStateTabs = () => {
   }
 
   const panelsById = {};
+  const FLAG_OVERRIDES = {
+    dc: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg',
+    pr: 'https://upload.wikimedia.org/wikipedia/commons/2/28/Flag_of_Puerto_Rico.svg',
+  };
 
   ableStateData.forEach((state, index) => {
     const tabId = `state-tab-${state.code}`;
     const panelId = `state-panel-${state.code}`;
 
+    const flagSrc = FLAG_OVERRIDES[state.code] || `https://flagcdn.com/us-${state.code}.svg`;
     const tabButton = document.createElement('button');
     tabButton.type = 'button';
     tabButton.className = 'state-tab';
@@ -207,7 +272,7 @@ const initStateTabs = () => {
       tabButton.classList.add('state-tab--active');
     }
     tabButton.innerHTML = `
-      <img src="https://flagcdn.com/us-${state.code}.svg" alt="Flag of ${state.state}" loading="lazy" />
+      <img src="${flagSrc}" alt="Flag of ${state.state}" loading="lazy" />
       <span>${state.state}</span>
     `;
     stateTabsWrapper.appendChild(tabButton);
@@ -387,90 +452,115 @@ if (document.querySelector('.medicaid-accordion')) {
 // STATE ACCORDIONS - Medicaid & ADAP
 // ============================================
 
-// Initialize Medicaid state accordions
-function initMedicaidStateAccordions() {
-  const container = document.getElementById('medicaid-state-accordion');
-  if (!container || typeof medicaidStateData === 'undefined') return;
+// Initialize Medicaid state tabs
+function initMedicaidStateTabs() {
+  const section = document.querySelector('[data-medicaid-states]');
+  if (!section || typeof medicaidStateData === 'undefined' || !medicaidStateData.length) return;
+
+  const tabList = section.querySelector('[data-medicaid-tab-list]');
+  const panelsWrapper = section.querySelector('[data-medicaid-panels]');
+  if (!tabList || !panelsWrapper) return;
+
+  const panelsById = {};
 
   medicaidStateData.forEach((state, index) => {
-    const details = document.createElement('details');
-    details.className = 'state-accordion__item';
+    const slug = createStateSlug(state.state);
+    const tabId = `medicaid-state-tab-${slug}`;
+    const panelId = `medicaid-state-panel-${slug}`;
 
-    const summary = document.createElement('summary');
-    summary.className = 'state-accordion__header';
-    summary.innerHTML = `
-      <img src="${state.flag}" alt="${state.state} flag" class="state-accordion__flag" />
-      <span class="state-accordion__name">${state.state}</span>
-      <span class="state-accordion__icon" aria-hidden="true">+</span>
+    const tabButton = document.createElement('button');
+    tabButton.type = 'button';
+    tabButton.className = 'state-tab';
+    tabButton.setAttribute('role', 'tab');
+    tabButton.id = tabId;
+    tabButton.setAttribute('aria-controls', panelId);
+    tabButton.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+    tabButton.tabIndex = index === 0 ? 0 : -1;
+    if (index === 0) {
+      tabButton.classList.add('state-tab--active');
+    }
+
+    const flagSrc = state.flag || `https://flagcdn.com/us-${slug}.svg`;
+    tabButton.innerHTML = `
+      <img src="${flagSrc}" alt="Flag of ${state.state}" loading="lazy" />
+      <span>${state.state}</span>
     `;
 
-    const content = document.createElement('div');
-    content.className = 'state-accordion__content';
+    tabList.appendChild(tabButton);
 
-    let contentHTML = '';
-
-    // Eligibility section
-    if (state.eligibility) {
-      contentHTML += '<div class="state-accordion__section">';
-      contentHTML += '<h4>Eligibility</h4>';
-      if (state.eligibility.description) {
-        contentHTML += `<p>${state.eligibility.description}</p>`;
-      }
-      if (state.eligibility.categories && state.eligibility.categories.length > 0) {
-        contentHTML += '<p><strong>Eligible categories:</strong></p><ul>';
-        state.eligibility.categories.forEach(cat => {
-          contentHTML += `<li>${cat}</li>`;
-        });
-        contentHTML += '</ul>';
-      }
-      contentHTML += '</div>';
+    const panel = document.createElement('article');
+    panel.className = 'state-panel';
+    panel.id = panelId;
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-labelledby', tabId);
+    if (index !== 0) {
+      panel.hidden = true;
+    } else {
+      panel.classList.add('state-panel--active');
     }
 
-    // Waivers section
-    if (state.waiversDescription || state.waiverPrograms) {
-      contentHTML += '<div class="state-accordion__section">';
-      contentHTML += '<h4>Home & Community Based Waivers</h4>';
-      if (state.waiversDescription) {
-        contentHTML += `<p>${state.waiversDescription}</p>`;
-      }
-      if (state.waiverPrograms && state.waiverPrograms.length > 0) {
-        contentHTML += '<ul>';
-        state.waiverPrograms.forEach(program => {
-          contentHTML += `<li><a href="${program.url}" target="_blank" rel="noreferrer noopener">${program.name}</a></li>`;
-        });
-        contentHTML += '</ul>';
-      }
-      contentHTML += '</div>';
-    }
+    const eligibilityHTML = buildEligibilityBlock(state);
+    const waiverHTML = buildWaiverBlock(state);
+    const nursingHomeHTML = state.nursingHomePersonalAllowance
+      ? `<div class="state-panel__section"><h4>Nursing Home Personal Allowance</h4><p>${state.nursingHomePersonalAllowance}</p></div>`
+      : '';
+    const detailLink = `<div class="state-panel__section"><p><a class="state-panel__cta" href="notion-pages/medicaid/states/${slug}.html" target="_blank" rel="noreferrer noopener">View full ${state.state} Medicaid details →</a></p></div>`;
 
-    // Nursing home allowance
-    if (state.nursingHomePersonalAllowance) {
-      contentHTML += '<div class="state-accordion__section">';
-      contentHTML += '<h4>Nursing Home Personal Allowance</h4>';
-      contentHTML += `<p>${state.nursingHomePersonalAllowance}</p>`;
-      contentHTML += '</div>';
-    }
+    panel.innerHTML = `
+      <div class="state-panel__heading">
+        <h3>${state.state}</h3>
+      </div>
+      ${eligibilityHTML}
+      ${waiverHTML}
+      ${nursingHomeHTML}
+      ${detailLink}
+    `;
 
-    // More information link
-    contentHTML += '<div class="state-accordion__section">';
-    contentHTML += `<p><a href="notion-pages/medicaid/states/${state.state.toLowerCase().replace(/\s+/g, '-')}.html" target="_blank" rel="noreferrer noopener" class="state-accordion__link">View full ${state.state} Medicaid details →</a></p>`;
-    contentHTML += '</div>';
+    panelsWrapper.appendChild(panel);
+    panelsById[panelId] = panel;
+  });
 
-    content.innerHTML = contentHTML;
+  const tabs = Array.from(tabList.querySelectorAll('[role="tab"]'));
 
-    details.appendChild(summary);
-    details.appendChild(content);
-    container.appendChild(details);
-
-    // Toggle icon on open/close
-    details.addEventListener('toggle', () => {
-      const icon = summary.querySelector('.state-accordion__icon');
-      if (details.open) {
-        icon.textContent = '−';
-      } else {
-        icon.textContent = '+';
+  const activateTab = (nextTab) => {
+    tabs.forEach((tab) => {
+      const isActive = tab === nextTab;
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      tab.classList.toggle('state-tab--active', isActive);
+      tab.tabIndex = isActive ? 0 : -1;
+      const panelId = tab.getAttribute('aria-controls');
+      const panel = panelsById[panelId];
+      if (panel) {
+        panel.hidden = !isActive;
+        panel.classList.toggle('state-panel--active', isActive);
       }
     });
+    nextTab.focus();
+  };
+
+  tabList.addEventListener('click', (event) => {
+    const tab = event.target.closest('[role="tab"]');
+    if (!tab) return;
+    activateTab(tab);
+  });
+
+  tabList.addEventListener('keydown', (event) => {
+    const currentIndex = Math.max(0, tabs.indexOf(document.activeElement));
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      const nextTab = tabs[(currentIndex + 1) % tabs.length];
+      activateTab(nextTab);
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      const nextTab = tabs[(currentIndex - 1 + tabs.length) % tabs.length];
+      activateTab(nextTab);
+    } else if (event.key === 'Home') {
+      event.preventDefault();
+      activateTab(tabs[0]);
+    } else if (event.key === 'End') {
+      event.preventDefault();
+      activateTab(tabs[tabs.length - 1]);
+    }
   });
 }
 
@@ -566,9 +656,9 @@ function initADAPStateAccordions() {
   });
 }
 
-// Initialize state accordions when DOM is ready
-if (document.getElementById('medicaid-state-accordion')) {
-  initMedicaidStateAccordions();
+// Initialize state tabs when DOM is ready
+if (document.querySelector('[data-medicaid-states]')) {
+  initMedicaidStateTabs();
 }
 
 if (document.getElementById('adap-state-accordion')) {

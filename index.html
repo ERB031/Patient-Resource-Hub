@@ -13,13 +13,13 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#resources">Skip to resources</a>
     <header class="hero" id="top">
       <nav class="nav">
-        <div class="logo">
+        <a class="logo" href="#top">
           <img
             class="logo-mark"
             src="images/small_black_png.webp"
@@ -29,10 +29,10 @@
             <p class="logo-eyebrow">Patient Resource Hub</p>
             <p class="logo-title">Resource Companion</p>
           </div>
-        </div>
+        </a>
         <div class="nav-actions">
-          <a class="nav-link" href="#mission">Mission</a>
           <a class="nav-link" href="#resources">Resources</a>
+          <a class="nav-link" href="glossary.html">Glossary</a>
           <a class="button button--ghost" href="https://forms.gle/bgS2vJRJADpwZJFY7" target="_blank" rel="noreferrer noopener">
             Submit a resource
           </a>
@@ -40,12 +40,13 @@
       </nav>
       <div class="hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Welcome, patients & caregivers</p>
-          <h1>Know your options, feel prepared, stay supported.</h1>
+          <h1>Patient Resource Hub</h1>
           <p class="lede">
-            This living Patient Resource Hub gathers trustworthy links about
-            government benefits, lowering healthcare costs, and understanding the
-            inequities we navigate every day.
+            The patient resource hub is a work in progress: a collection of
+            information and resources to help chronically ill &amp; disabled people
+            navigate the healthcare system, government benefits, and more. This
+            site is powered by community - if you know of a resource we should
+            include, submit it below.
           </p>
           <div class="hero-ctas">
             <a class="button" href="#resources">Explore resources</a>
@@ -60,54 +61,24 @@
       </div>
     </header>
 
-    <main>
-      <section class="intro" id="mission">
-        <div class="intro-card">
-          <h2>A hub built for chronically ill & disabled patients</h2>
-          <p>
-            The Patient Resource Hub is a work in progress—a compassionate,
-            community-powered list of guides and links to help you navigate the
-            healthcare system, government programs, and day-to-day barriers.
-          </p>
-          <p>
-            Every resource listed below comes directly from the
-            <a href="notion-pages/general/patient-resource-hub.html" target="_blank" rel="noreferrer noopener">Patient Resource Hub workspace</a>.
-            Have something to add? Your lived experience matters.
-          </p>
-          <div class="intro-actions">
-            <a class="button" href="https://forms.gle/bgS2vJRJADpwZJFY7" target="_blank" rel="noreferrer noopener">
-              Share a resource
-            </a>
-            <a class="button button--ghost" href="#resources">Jump to resources</a>
-          </div>
-        </div>
-        <div class="glossary-card">
-          <p class="eyebrow">Decode the jargon</p>
-          <h3>Abbreviation Glossary</h3>
-          <p>
-            Quickly look up acronyms you’ll see in paperwork, medical records, and
-            benefit applications.
-          </p>
-          <a class="text-link" href="glossary.html">
-            Open the glossary &rarr;
-          </a>
-        </div>
-      </section>
+    <main id="mission">
 
       <section class="finder" aria-labelledby="finder-heading">
         <div>
           <p class="eyebrow">Find what you need</p>
           <h2 id="finder-heading">Search across all pages</h2>
           <p>
-            Start typing a keyword like "Medicaid", "eligibility", or "prescription" to search
-            across every page on this site and find exactly what you need.
+            Start typing a keyword like "medicaid eligibility" to find what you need.
+          </p>
+          <p class="search-note">
+            Need help decoding acronyms? <a class="text-link" href="glossary.html">Abbreviation glossary</a>.
           </p>
         </div>
         <label class="search-field">
           <span class="sr-only">Search resources</span>
           <input
             type="search"
-            placeholder="Search all pages for topics, programs, or keywords"
+            placeholder="Start typing a keyword like \"medicaid eligibility\" to find what you need"
             data-resource-search
             aria-controls="resource-grid"
           />
@@ -115,14 +86,14 @@
       </section>
 
       <section id="resources" class="resources" aria-live="polite">
-        <h2>Your current collection</h2>
+        <h2>Featured resources</h2>
         <div id="resource-grid" class="resource-grid">
           <article class="resource-card" data-category="government-benefits">
-            <p class="eyebrow">Government Benefits</p>
-            <h3>Understand disability & federal support programs</h3>
+            <h3>Government Benefits</h3>
+            <p class="resource-subheading">Understand Disability &amp; Medical Benefits</p>
             <p>
-              Step-by-step explainers focused on SSI, SSDI, Medicare, Medicaid, and
-              ABLE accounts so you can apply or appeal with more confidence.
+              Practical explainers for SSI, SSDI, Medicare, Medicaid, and ABLE accounts
+              so you can apply, appeal, or plan with more confidence.
             </p>
             <ul>
               <li data-resource-item>
@@ -143,11 +114,13 @@
           </article>
 
           <article class="resource-card" data-category="cost-support">
-            <p class="eyebrow">Help Paying Healthcare Costs</p>
-            <h3>Lower your prescription totals</h3>
+            <h3>Help Paying Healthcare Costs</h3>
+            <p class="resource-subheading">
+              Explore programs &amp; tools to help you save money on medical care*
+            </p>
             <p>
-              Compare vetted savings tools and programs designed to trim the price
-              of essential medications.
+              Compare vetted savings tools, discount programs, and patient assistance
+              options—note that availability varies by state and condition.
             </p>
             <ul>
               <li data-resource-item>
@@ -157,8 +130,8 @@
           </article>
 
           <article class="resource-card resource-card--feature" data-category="equity">
-            <p class="eyebrow">Learn About Disparities in Healthcare</p>
-            <h3>Understand the Standard of Care gap</h3>
+            <h3>Standard of Care</h3>
+            <p class="resource-subheading">Learn about disparities in healthcare</p>
             <figure>
               <img
                 src="images/small_black_png.webp"
@@ -180,18 +153,16 @@
           No resources match that keyword yet. Try another search or share what you
           need.
         </p>
-        <p class="coming-soon" id="share">
-          More resources coming soon! Contribute your go-to guides so we can lift
-          each other up.
+        <p class="coming-soon">
+          More coming soon.
         </p>
       </section>
 
-      <section class="cta">
+      <section class="cta" id="share">
         <div class="cta-card">
-          <h2>Have a trusted resource we missed?</h2>
+          <h2>Help us keep the hub growing</h2>
           <p>
-            Submit it through the form so fellow patients can access the help,
-            answers, and validation you’ve already found.
+            Know something we should include? Send it to the hub so other patients can benefit.
           </p>
           <a class="button" href="https://forms.gle/bgS2vJRJADpwZJFY7" target="_blank" rel="noreferrer noopener">
             Share my resource
@@ -205,6 +176,6 @@
       <a href="#top">Back to top</a>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
   </body>
 </html>

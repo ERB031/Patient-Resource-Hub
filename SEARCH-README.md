@@ -52,9 +52,9 @@ Rebuild the search index whenever you:
 .
 ├── build-search-index.js     # Script to generate search index
 ├── search-index.json          # Generated search index (66KB)
-├── script.js                  # Includes search functionality
+├── assets/js/script.js         # Includes search functionality
 ├── index.html                 # Main page with search bar
-└── styles.css                 # Includes search result styles
+└── assets/css/styles.css       # Includes search result styles
 ```
 
 ## Search Features
@@ -76,7 +76,7 @@ Rebuild the search index whenever you:
 ## Customization
 
 ### Styling Search Results
-Edit the `.resource-card--search-result` class in `styles.css`:
+Edit the `.resource-card--search-result` class in `assets/css/styles.css`:
 ```css
 .resource-card--search-result {
   background: linear-gradient(145deg, #f0f5fd, #f6f9fd);
@@ -85,7 +85,7 @@ Edit the `.resource-card--search-result` class in `styles.css`:
 ```
 
 ### Adjusting Search Behavior
-In `script.js`, you can modify:
+In `assets/js/script.js`, you can modify:
 - **Number of results**: Change `siteResults.slice(0, 6)` to show more/fewer
 - **Scoring algorithm**: Modify the `searchSiteWide()` function
 - **Preview length**: Adjust `page.preview.slice(0, 150)`
@@ -95,7 +95,7 @@ In `script.js`, you can modify:
 ### Search not working?
 1. Check browser console for errors
 2. Verify `search-index.json` exists and is valid JSON
-3. Ensure `script.js` is loaded (check Network tab)
+3. Ensure `assets/js/script.js` is loaded (check Network tab)
 4. Rebuild the search index with latest content
 
 ### Index file too large?

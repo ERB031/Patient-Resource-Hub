@@ -13,28 +13,26 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="hero hero--subpage" id="top">
       <nav class="nav">
-        <div class="logo">
-          <a href="index.html" class="logo-link-wrapper">
-            <img
-              class="logo-mark"
-              src="images/small_black_png.webp"
-              alt="Patient Resource Hub logo"
-            />
-            <div>
-              <p class="logo-eyebrow">Patient Resource Hub</p>
-              <p class="logo-title">Resource Companion</p>
-            </div>
-          </a>
-        </div>
+        <a class="logo" href="index.html">
+          <img
+            class="logo-mark"
+            src="images/small_black_png.webp"
+            alt="Patient Resource Hub logo"
+          />
+          <div>
+            <p class="logo-eyebrow">Patient Resource Hub</p>
+            <p class="logo-title">Resource Companion</p>
+          </div>
+        </a>
         <div class="nav-actions">
-          <a class="nav-link" href="index.html#mission">Mission</a>
           <a class="nav-link" href="index.html#resources">Resources</a>
+          <a class="nav-link" href="glossary.html">Glossary</a>
           <a
             class="button button--ghost"
             href="https://forms.gle/bgS2vJRJADpwZJFY7"
@@ -155,12 +153,6 @@
             </div>
           </div>
         </div>
-        <div class="hero-visual hero-visual--glossary hero-visual--logo">
-          <img
-            src="images/medicaid-logo.jpg"
-            alt="Medicaid logo"
-          />
-        </div>
       </div>
     </header>
 
@@ -168,11 +160,17 @@
       <section class="content-section">
         <div class="prose">
           <p>
-            For information about your state's specific programs, click on your state below to expand details about eligibility, waivers, and contact information.
+            For information about your state's specific programs, click on your state below to expand details about eligibility, coverage, waivers, and contact information. If a Notion guide is broken or missing, use the fallback links or submit an update through the form below.
           </p>
-          <div class="state-accordion" id="medicaid-state-accordion" aria-label="Medicaid programs by state">
-            <!-- State accordions will be populated by JavaScript -->
-          </div>
+          <section class="state-tabs" data-medicaid-states>
+            <div
+              class="state-tabs__list"
+              role="tablist"
+              aria-label="Medicaid programs by state"
+              data-medicaid-tab-list
+            ></div>
+            <div class="state-tabs__panels" data-medicaid-panels></div>
+          </section>
           <noscript>
             <p>JavaScript is required to view state-specific information. Please enable JavaScript in your browser.</p>
           </noscript>
@@ -265,7 +263,7 @@
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                <img src="https://flagcdn.com/us-dc.svg" alt="" style="width: 20px; height: auto; margin-right: 8px; vertical-align: middle;" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg" alt="Flag of District of Columbia" style="width: 20px; height: auto; margin-right: 8px; vertical-align: middle;" />
                 District of Columbia
               </a>
             </li>
@@ -575,7 +573,7 @@
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                <img src="https://flagcdn.com/us-pr.svg" alt="" style="width: 20px; height: auto; margin-right: 8px; vertical-align: middle;" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Flag_of_Puerto_Rico.svg" alt="Flag of Puerto Rico" style="width: 20px; height: auto; margin-right: 8px; vertical-align: middle;" />
                 Puerto Rico
               </a>
             </li>
@@ -683,8 +681,11 @@
           <p class="state-directory__more">Load more</p>
         </div>
       </section>
+      <p class="resource-note">
+        Know something we should include? <a href="https://forms.gle/bgS2vJRJADpwZJFY7" target="_blank" rel="noreferrer noopener">Send it to the hub</a> so other patients can benefit.
+      </p>
     </main>
     <script src="medicaid-state-data.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
   </body>
 </html>

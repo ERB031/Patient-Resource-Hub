@@ -8,7 +8,7 @@
   --muted: #8a8486;
   --card-border: rgba(63, 51, 54, 0.08);
   --shadow: 0 25px 50px rgba(34, 16, 15, 0.1);
-  font-family: 'Merriweather', 'Roboto', serif;
+  font-family: 'Roboto', 'Merriweather', serif;
   color: var(--plum);
   background-color: var(--bg);
 }
@@ -24,6 +24,7 @@ body {
   background: radial-gradient(circle at top right, #fdf7f1 0%, var(--bg) 60%);
   line-height: 1.6;
   min-height: 100vh;
+  font-family: 'Roboto', 'Merriweather', serif;
 }
 
 img {
@@ -112,9 +113,7 @@ a:focus-visible {
 }
 
 .logo-title {
-  font-size: 1.1rem;
-  margin: 0;
-  font-weight: 600;
+  display: none;
 }
 
 .nav-actions {
@@ -304,6 +303,18 @@ a:focus-visible {
   box-shadow: var(--shadow);
 }
 
+.search-note {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  flex-basis: 100%;
+}
+
+.search-note a {
+  font-weight: 600;
+  color: var(--accent-strong);
+}
+
 .glossary-search {
   margin: 2rem clamp(1.5rem, 5vw, 4rem);
   padding: 2rem;
@@ -320,6 +331,33 @@ a:focus-visible {
 .content-section {
   padding: clamp(1.5rem, 5vw, 4rem);
   padding-bottom: 0;
+}
+
+.content-section--intro {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.medicare-help-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.medicare-help-card {
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.medicare-help-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
 }
 
 .definition-grid {
@@ -530,9 +568,10 @@ a:focus-visible {
   border-left: 4px solid var(--accent-strong);
   border-radius: 20px;
   padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   box-shadow: 0 10px 30px rgba(34, 16, 15, 0.08);
+  width: 100%;
 }
 
 .intersectionality-card h3 {
@@ -658,6 +697,40 @@ a:focus-visible {
 .benefit-card__cta::after {
   content: '↗';
   font-size: 0.9em;
+}
+
+.benefits-summary {
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  margin-bottom: 2rem;
+}
+
+.benefits-summary__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.benefits-summary__card {
+  background: #fffdfa;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.benefits-summary__card h3 {
+  margin: 0;
+}
+
+.benefits-summary__card ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 .medicaid-topics {
@@ -892,6 +965,34 @@ a:focus-visible {
   margin: 0;
 }
 
+.state-panel__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.state-panel__section h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.state-panel__section p {
+  margin: 0;
+}
+
+.state-panel__section ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.state-panel__section li {
+  line-height: 1.5;
+}
+
 .state-panel__cta {
   font-weight: 600;
   text-decoration: none;
@@ -1000,6 +1101,51 @@ a:focus-visible {
   width: fit-content;
 }
 
+.soc-card__tag--carceral {
+  color: #8b1e1e;
+  background: rgba(139, 30, 30, 0.15);
+}
+
+.soc-card__tag--immigrant {
+  color: #0b5f67;
+  background: rgba(11, 95, 103, 0.15);
+}
+
+.soc-card__tag--economic {
+  color: #9b4f0f;
+  background: rgba(155, 79, 15, 0.15);
+}
+
+.soc-card__tag--geography {
+  color: #1b4f7d;
+  background: rgba(27, 79, 125, 0.15);
+}
+
+.soc-card__tag--age {
+  color: #4c2b82;
+  background: rgba(76, 43, 130, 0.15);
+}
+
+.soc-card__tag--mental {
+  color: #123747;
+  background: rgba(18, 55, 71, 0.15);
+}
+
+.soc-card__tag--racial {
+  color: #5f1c67;
+  background: rgba(95, 28, 103, 0.15);
+}
+
+.soc-card__tag--gender {
+  color: #a11e74;
+  background: rgba(161, 30, 116, 0.15);
+}
+
+.soc-card__tag--body {
+  color: #1c5c42;
+  background: rgba(28, 92, 66, 0.15);
+}
+
 .soc-card h3 {
   margin: 0.5rem 0 0;
   font-size: 1.5rem;
@@ -1015,6 +1161,93 @@ a:focus-visible {
 .soc-card .benefit-card__cta {
   margin-top: auto;
   padding-top: 0.5rem;
+}
+
+.soc-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  margin-top: 1.5rem;
+}
+
+.soc-highlight {
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.soc-highlight h3 {
+  margin: 0;
+}
+
+.soc-highlight ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.soc-highlight a {
+  font-weight: 600;
+  color: var(--accent-strong);
+}
+
+.sources-panel {
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: var(--shadow);
+}
+
+.sources-panel ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.soc-action-grid {
+  padding: clamp(1.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem) 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.soc-action-card {
+  background: #fff;
+  border-radius: 24px;
+  border: 1px solid var(--card-border);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.soc-action-card ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.soc-action-card li {
+  line-height: 1.5;
+}
+
+@media (max-width: 1000px) {
+  .soc-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 .glossary-grid {
@@ -1033,6 +1266,13 @@ a:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.resource-subheading {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.5;
 }
 
 .glossary-item {
@@ -1126,6 +1366,8 @@ a:focus-visible {
   text-align: center;
   font-weight: 600;
   color: var(--plum);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: 0.04em;
 }
 
 .no-results {
@@ -1280,6 +1522,18 @@ a:focus-visible {
 
 .cta-card h2 {
   color: white;
+}
+
+.resource-note {
+  font-size: 0.95rem;
+  color: var(--muted);
+  text-align: center;
+  margin: 0 clamp(1.5rem, 6vw, 5rem);
+}
+
+.resource-note a {
+  color: var(--accent-strong);
+  font-weight: 600;
 }
 
 .site-footer {

@@ -13,28 +13,26 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="hero hero--subpage" id="top">
       <nav class="nav">
-        <div class="logo">
-          <a href="index.html" class="logo-link-wrapper">
-            <img
-              class="logo-mark"
-              src="images/small_black_png.webp"
-              alt="Patient Resource Hub logo"
-            />
-            <div>
-              <p class="logo-eyebrow">Patient Resource Hub</p>
-              <p class="logo-title">Resource Companion</p>
-            </div>
-          </a>
-        </div>
+        <a class="logo" href="index.html">
+          <img
+            class="logo-mark"
+            src="images/small_black_png.webp"
+            alt="Patient Resource Hub logo"
+          />
+          <div>
+            <p class="logo-eyebrow">Patient Resource Hub</p>
+            <p class="logo-title">Resource Companion</p>
+          </div>
+        </a>
         <div class="nav-actions">
-          <a class="nav-link" href="index.html#mission">Mission</a>
           <a class="nav-link" href="index.html#resources">Resources</a>
+          <a class="nav-link" href="glossary.html">Glossary</a>
           <a
             class="button button--ghost"
             href="https://forms.gle/bgS2vJRJADpwZJFY7"
@@ -55,12 +53,6 @@
           <div class="hero-ctas">
             <a class="button button--ghost" href="index.html#resources">Back to main resources</a>
           </div>
-        </div>
-        <div class="hero-visual hero-visual--glossary hero-visual--logo">
-          <img
-            src="images/Medicare-Logo.png"
-            alt="Medicare logo"
-          />
         </div>
       </div>
     </header>
@@ -100,21 +92,39 @@
             <li><strong>Extra Help</strong>: A program to help pay for Medicare prescription drug coverage (Part D) costs.</li>
           </ul>
           <p>You can learn more and apply through your state's Medicaid office or the Social Security Administration.</p>
+          <div class="medicare-help-grid">
+            <article class="medicare-help-card">
+              <h4>SHIP counseling</h4>
+              <p>
+                State Health Insurance Assistance Programs (SHIPs) offer free,
+                unbiased, one-on-one counseling about enrollment, plan comparisons,
+                appeals, and Medicare Savings Programs.
+                <a href="https://www.shiphelp.org/" target="_blank" rel="noreferrer noopener">Find your SHIP</a> or call 1-800-633-4227 (TTY 711).
+              </p>
+            </article>
+            <article class="medicare-help-card">
+              <h4>Extra Help (Low-Income Subsidy)</h4>
+              <p>
+                Extra Help lowers or eliminates premiums, deductibles, and
+                copays for Part D drugs. Eligibility depends on income and assets.
+                <a href="https://www.ssa.gov/benefits/medicare/prescriptionhelp/" target="_blank" rel="noreferrer noopener">Check eligibility and apply</a> through the Social Security Administration.
+              </p>
+            </article>
+            <article class="medicare-help-card">
+              <h4>Medicare Savings Programs</h4>
+              <p>
+                Each state runs a program to cover Part A and/or Part B premiums,
+                deductibles, and coinsurance. These programs often link to Medicaid enrollment.
+                <a href="https://www.medicare.gov/your-medicare-costs/help-paying-costs/medicare-savings-programs/" target="_blank" rel="noreferrer noopener">See if you qualify</a>.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section class="cta">
-        <div class="cta-card">
-          <h2>Have a trusted resource we missed?</h2>
-          <p>
-            Submit it through the form so fellow patients can access the help,
-            answers, and validation you’ve already found.
-          </p>
-          <a class="button" href="https://forms.gle/bgS2vJRJADpwZJFY7" target="_blank" rel="noreferrer noopener">
-            Share my resource
-          </a>
-        </div>
-      </section>
+      <p class="resource-note">
+        Know something we should include? <a href="https://forms.gle/bgS2vJRJADpwZJFY7" target="_blank" rel="noreferrer noopener">Send it to the hub</a> so other patients can benefit.
+      </p>
     </main>
 
     <footer class="site-footer">
@@ -122,6 +132,6 @@
       <a href="#top">Back to top</a>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
   </body>
 </html>

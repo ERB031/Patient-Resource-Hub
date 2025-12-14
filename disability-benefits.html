@@ -13,28 +13,26 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#benefits-sections">Skip to disability benefits</a>
     <header class="hero hero--subpage" id="top">
       <nav class="nav">
-        <div class="logo">
-          <a href="index.html" class="logo-link-wrapper">
-            <img
-              class="logo-mark"
-              src="images/small_black_png.webp"
-              alt="Patient Resource Hub logo"
-            />
-            <div>
-              <p class="logo-eyebrow">Patient Resource Hub</p>
-              <p class="logo-title">Resource Companion</p>
-            </div>
-          </a>
-        </div>
+        <a class="logo" href="index.html">
+          <img
+            class="logo-mark"
+            src="images/small_black_png.webp"
+            alt="Patient Resource Hub logo"
+          />
+          <div>
+            <p class="logo-eyebrow">Patient Resource Hub</p>
+            <p class="logo-title">Resource Companion</p>
+          </div>
+        </a>
         <div class="nav-actions">
-          <a class="nav-link" href="index.html#mission">Mission</a>
           <a class="nav-link" href="index.html#resources">Resources</a>
+          <a class="nav-link" href="glossary.html">Glossary</a>
           <a
             class="button button--ghost"
             href="https://forms.gle/bgS2vJRJADpwZJFY7"
@@ -66,11 +64,6 @@
             <a class="button button--ghost" href="index.html">Back to main hub</a>
           </div>
         </div>
-        <div
-          class="hero-visual hero-visual--glossary"
-          role="img"
-          aria-label="Graphic inspired by SSA paperwork and supportive planning"
-        ></div>
       </div>
     </header>
 
@@ -78,11 +71,10 @@
       <section class="benefits-overview">
         <div>
           <p class="eyebrow">What you'll find</p>
-          <h2>Check qualifications, apply with confidence, and keep benefits on track.</h2>
+          <h2>Understand SSDI &amp; SSI</h2>
           <p>
-            Use the curated Notion links below to compare SSI vs. SSDI rules, prepare paperwork
-            for adults or kids, understand how payments are calculated, and learn what life
-            changes you must report to the Social Security Administration.
+            Use the curated Notion links below to compare the core rules, paperwork, and timing
+            for SSDI and SSI so you can plan your next steps without rereading every tab.
           </p>
           <p class="benefits-note">
             Each resource opens in a new Notion tab and reflects U.S. federal guidance. Always
@@ -99,6 +91,29 @@
             <li><a href="#impacts">Things that impact benefits</a></li>
           </ul>
         </aside>
+      </section>
+
+      <section class="benefits-summary">
+        <div class="benefits-summary__grid">
+          <article class="benefits-summary__card">
+            <h3>SSDI (Social Security Disability Insurance)</h3>
+            <p>Work-based coverage for people who paid into Social Security taxes.</p>
+            <ul>
+              <li>You need enough work credits; higher lifetime earnings raise benefit amounts.</li>
+              <li>The disability must prevent substantial work for at least 12 months or end in death.</li>
+              <li>Medicare coverage begins after 24 months of SSDI payments.</li>
+            </ul>
+          </article>
+          <article class="benefits-summary__card">
+            <h3>SSI (Supplemental Security Income)</h3>
+            <p>Income- and resource-based cash assistance for disabled adults, children, or seniors.</p>
+            <ul>
+              <li>Strict income and asset limits; parents or spouses may need to report resources (deeming).</li>
+              <li>Most SSI recipients also automatically qualify for Medicaid in their state.</li>
+              <li>Payments fluctuate by living situation, with some states adding a supplemental amount.</li>
+            </ul>
+          </article>
+        </div>
       </section>
 
       <section class="benefits-section" id="eligibility">
@@ -483,23 +498,9 @@
         </div>
       </section>
 
-      <section class="cta">
-        <div class="cta-card">
-          <h2>Share a missing disability benefit tip</h2>
-          <p>
-            Your real-life experience navigating SSA paperwork can help someone else feel less alone.
-            Submit your go-to explainer, video, or checklist.
-          </p>
-          <a
-            class="button"
-            href="https://forms.gle/bgS2vJRJADpwZJFY7"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Submit a resource
-          </a>
-        </div>
-      </section>
+      <p class="resource-note">
+        Know something we should include? <a href="https://forms.gle/bgS2vJRJADpwZJFY7" target="_blank" rel="noreferrer noopener">Send it to the hub</a> so other patients can benefit.
+      </p>
     </main>
 
     <footer class="site-footer">
@@ -507,6 +508,6 @@
       <a href="#top">Back to top</a>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
   </body>
 </html>

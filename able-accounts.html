@@ -13,29 +13,26 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="hero hero--subpage" id="top">
       <nav class="nav">
-        <div class="logo">
-          <a href="index.html" class="logo-link-wrapper">
-            <img
-              class="logo-mark"
-              src="images/small_black_png.webp"
-              alt="Patient Resource Hub logo"
-            />
-            <div>
-              <p class="logo-eyebrow">Patient Resource Hub</p>
-              <p class="logo-title">Resource Companion</p>
-            </div>
-          </a>
-        </div>
+        <a class="logo" href="index.html">
+          <img
+            class="logo-mark"
+            src="images/small_black_png.webp"
+            alt="Patient Resource Hub logo"
+          />
+          <div>
+            <p class="logo-eyebrow">Patient Resource Hub</p>
+            <p class="logo-title">Resource Companion</p>
+          </div>
+        </a>
         <div class="nav-actions">
-          <a class="nav-link" href="index.html#mission">Mission</a>
           <a class="nav-link" href="index.html#resources">Resources</a>
-          <a class="nav-link" href="index.html#share">Share a resource</a>
+          <a class="nav-link" href="glossary.html">Glossary</a>
           <a
             class="button button--ghost"
             href="https://forms.gle/bgS2vJRJADpwZJFY7"
@@ -331,8 +328,11 @@
           <div class="state-tabs__panels" data-state-panels></div>
         </div>
       </section>
+      <p class="resource-note">
+        Know something we should include? <a href="https://forms.gle/bgS2vJRJADpwZJFY7" target="_blank" rel="noreferrer noopener">Send it to the hub</a> so other patients can benefit.
+      </p>
     </main>
     <script src="able-state-data.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
   </body>
 </html>
