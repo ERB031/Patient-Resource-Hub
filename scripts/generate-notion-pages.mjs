@@ -247,7 +247,6 @@ function buildTemplate({ title, notionUrl, bodyHtml, outputPath }) {
     <link rel="stylesheet" href="${relStyles}" />
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="hero hero--subpage" id="top">
       <nav class="nav">
         <div class="logo">

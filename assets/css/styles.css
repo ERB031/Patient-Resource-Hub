@@ -58,21 +58,6 @@ a:focus-visible {
   color: var(--accent);
 }
 
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 16px;
-  background: var(--plum);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  z-index: 20;
-}
-
-.skip-link:focus {
-  top: 16px;
-}
-
 .nav {
   display: flex;
   justify-content: space-between;

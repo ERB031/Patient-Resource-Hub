@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs -0 perl -i -0pe 's/\\\\s*<a class=\"\"skip-link\"\"[^>]*>Skip to [^<]*<\\\\/a>\\\\n?//g')"
+    ]
+  }
+}
