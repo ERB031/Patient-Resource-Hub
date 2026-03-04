@@ -186,58 +186,6 @@ const createStateSlug = (label) => {
     .replace(/(^-|-$)/g, '');
 };
 
-const formatMultilineText = (text) => {
-  if (typeof text !== 'string') return text;
-  return text.replace(/\n/g, '<br />');
-};
-
-const buildEligibilityBlock = (state) => {
-  const eligibility = state.eligibility;
-  if (!eligibility) return '';
-  const categories = Array.isArray(eligibility.categories) ? eligibility.categories : [];
-
-  let html = '<div class="state-panel__section">';
-  html += '<h4>Eligibility</h4>';
-  if (eligibility.description) {
-    html += `<p>${formatMultilineText(eligibility.description)}</p>`;
-  }
-  if (categories.length) {
-    html += '<ul>';
-    categories.forEach((cat) => {
-      html += `<li>${cat}</li>`;
-    });
-    html += '</ul>';
-  }
-  html += '</div>';
-
-  return html;
-};
-
-const buildWaiverBlock = (state) => {
-  const programs = Array.isArray(state.waiverPrograms) ? state.waiverPrograms : [];
-  if (!state.waiversDescription && !programs.length) return '';
-
-  let html = '<div class="state-panel__section">';
-  html += '<h4>Home & community-based waivers</h4>';
-  if (state.waiversDescription) {
-    html += `<p>${formatMultilineText(state.waiversDescription)}</p>`;
-  }
-  if (programs.length) {
-    html += '<ul>';
-    programs.forEach((program) => {
-      if (program.url) {
-        html += `<li><a href="${program.url}" target="_blank" rel="noreferrer noopener">${program.name}</a></li>`;
-      } else if (program.name) {
-        html += `<li>${program.name}</li>`;
-      }
-    });
-    html += '</ul>';
-  }
-  html += '</div>';
-
-  return html;
-};
-
 const initStateTabs = () => {
   if (!stateSection || !stateTabsWrapper || !statePanelsWrapper || !ableStateData.length) {
     if (stateSection) {
@@ -499,21 +447,48 @@ function initMedicaidStateTabs() {
       panel.classList.add('state-panel--active');
     }
 
-    const eligibilityHTML = buildEligibilityBlock(state);
-    const waiverHTML = buildWaiverBlock(state);
-    const nursingHomeHTML = state.nursingHomePersonalAllowance
-      ? `<div class="state-panel__section"><h4>Nursing Home Personal Allowance</h4><p>${state.nursingHomePersonalAllowance}</p></div>`
-      : '';
-    const detailLink = `<div class="state-panel__section"><p><a class="state-panel__cta" href="notion-pages/medicaid/states/${slug}.html" target="_blank" rel="noreferrer noopener">View full ${state.state} Medicaid details →</a></p></div>`;
+    // Build dl grid items (matching ABLE layout)
+    const categories = (state.eligibility && Array.isArray(state.eligibility.categories))
+      ? state.eligibility.categories.join(', ')
+      : 'Not available yet';
+
+    const gridItems = [
+      { label: 'Eligible groups', value: categories },
+      { label: 'Nursing home personal allowance', value: formatStateText(state.nursingHomePersonalAllowance) },
+    ];
+
+    const gridHtml = gridItems
+      .map((item) => `<div><dt>${item.label}</dt><dd>${item.value}</dd></div>`)
+      .join('');
+
+    // Build waiver programs list
+    const programs = Array.isArray(state.waiverPrograms) ? state.waiverPrograms : [];
+    let waiverHtml = '';
+    if (programs.length) {
+      const waiverItems = programs.map((p) =>
+        p.url
+          ? `<li><a href="${p.url}" target="_blank" rel="noreferrer noopener">${p.name}</a></li>`
+          : `<li>${p.name}</li>`
+      ).join('');
+      waiverHtml = `
+        <div class="state-panel__section">
+          <h4>Home &amp; community-based waivers</h4>
+          <ul>${waiverItems}</ul>
+        </div>
+      `;
+    }
+
+    const detailLink = `<a class="state-panel__cta" href="notion-pages/medicaid/states/${slug}.html" target="_blank" rel="noreferrer noopener">View full ${state.state} Medicaid details →</a>`;
 
     panel.innerHTML = `
       <div class="state-panel__heading">
         <h3>${state.state}</h3>
+        ${detailLink}
       </div>
-      ${eligibilityHTML}
-      ${waiverHTML}
-      ${nursingHomeHTML}
-      ${detailLink}
+      <dl class="state-panel__grid">
+        ${gridHtml}
+      </dl>
+      ${waiverHtml}
     `;
 
     panelsWrapper.appendChild(panel);

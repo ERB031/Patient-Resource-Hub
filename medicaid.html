@@ -20,16 +20,8 @@
     <header class="hero hero--subpage" id="top">
       <nav class="nav">
         <a class="logo" href="index.html">
-          <img
-            class="logo-mark"
-            src="images/small_black_png.webp"
-            alt="Patient Resource Hub logo"
-          />
-          <div>
             <p class="logo-eyebrow">Patient Resource Hub</p>
-            <p class="logo-title">Resource Companion</p>
-          </div>
-        </a>
+          </a>
         <div class="nav-actions">
           <a class="nav-link" href="index.html#resources">Resources</a>
           <a class="nav-link" href="glossary.html">Glossary</a>
@@ -53,9 +45,17 @@
           </p>
           <p>
             States administer their own Medicaid programs according to federal
-            requirements, meaning that eligibility, costs, and coverage vary between
-            states. For General information about Medicaid, see the links below:
+            requirements, meaning eligibility, costs, and coverage vary between states.
           </p>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="content-section">
+        <div class="prose">
+          <p class="legislation-note"><strong>Note:</strong> Content updates are pending 2026 healthcare legislation. Current information reflects federal guidance as of early 2025.</p>
+          <h2>General information</h2>
           <div class="medicaid-accordion">
             <button class="accordion-button" data-section="eligibility" aria-expanded="false">
               <span>Eligibility</span>
@@ -153,14 +153,13 @@
             </div>
           </div>
         </div>
-      </div>
-    </header>
+      </section>
 
-    <main id="main-content">
       <section class="content-section">
         <div class="prose">
+          <h2>Your state's Medicaid program</h2>
           <p>
-            For information about your state's specific programs, click on your state below to expand details about eligibility, coverage, waivers, and contact information. If a Notion guide is broken or missing, use the fallback links or submit an update through the form below.
+            Click on your state to see eligibility, coverage, waivers, and contact information.
           </p>
           <section class="state-tabs" data-medicaid-states>
             <div
@@ -681,10 +680,18 @@
           <p class="state-directory__more">Load more</p>
         </div>
       </section>
-      <p class="resource-note">
-        Know something we should include? <a href="https://forms.gle/bgS2vJRJADpwZJFY7" target="_blank" rel="noreferrer noopener">Send it to the hub</a> so other patients can benefit.
-      </p>
+      <section class="cta cta--compact">
+        <div class="cta-card">
+          <p>Know something we should include? <a href="https://forms.gle/bgS2vJRJADpwZJFY7" target="_blank" rel="noreferrer noopener">Send it to the hub</a> so other patients can benefit.</p>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Patient Resource Hub · Community-built support.</p>
+      <a href="#top">Back to top</a>
+    </footer>
+
     <script src="medicaid-state-data.js" defer></script>
     <script src="assets/js/script.js" defer></script>
   </body>

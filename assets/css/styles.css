@@ -112,9 +112,6 @@ a:focus-visible {
   color: var(--muted);
 }
 
-.logo-title {
-  display: none;
-}
 
 .nav-actions {
   display: flex;
@@ -1146,6 +1143,17 @@ a:focus-visible {
   background: rgba(28, 92, 66, 0.15);
 }
 
+/* Identity group color accents on cards */
+.soc-card:has(.soc-card__tag--carceral)  { border-left: 4px solid #8b1e1e; }
+.soc-card:has(.soc-card__tag--immigrant) { border-left: 4px solid #0b5f67; }
+.soc-card:has(.soc-card__tag--economic)  { border-left: 4px solid #9b4f0f; }
+.soc-card:has(.soc-card__tag--geography) { border-left: 4px solid #1b4f7d; }
+.soc-card:has(.soc-card__tag--age)       { border-left: 4px solid #4c2b82; }
+.soc-card:has(.soc-card__tag--mental)    { border-left: 4px solid #123747; }
+.soc-card:has(.soc-card__tag--racial)    { border-left: 4px solid #5f1c67; }
+.soc-card:has(.soc-card__tag--gender)    { border-left: 4px solid #a11e74; }
+.soc-card:has(.soc-card__tag--body)      { border-left: 4px solid #1c5c42; }
+
 .soc-card h3 {
   margin: 0.5rem 0 0;
   font-size: 1.5rem;
@@ -1199,11 +1207,16 @@ a:focus-visible {
 }
 
 .sources-panel {
-  background: #fff;
-  border: 1px solid var(--card-border);
+  background: linear-gradient(135deg, rgba(217, 150, 126, 0.1), rgba(154, 75, 59, 0.05));
+  border: 2px solid rgba(154, 75, 59, 0.2);
+  border-left: 5px solid var(--accent-strong);
   border-radius: 24px;
-  padding: clamp(1.5rem, 4vw, 2.5rem);
-  box-shadow: var(--shadow);
+  padding: clamp(2rem, 5vw, 3rem);
+  box-shadow: 0 15px 40px rgba(34, 16, 15, 0.1);
+}
+
+.sources-panel h2 {
+  color: var(--accent-strong);
 }
 
 .sources-panel ul {
@@ -1522,6 +1535,49 @@ a:focus-visible {
 
 .cta-card h2 {
   color: white;
+}
+
+/* Compact CTA variant for resource pages */
+.cta--compact {
+  padding: 0 clamp(1.5rem, 6vw, 5rem) 2rem;
+  margin-top: 1.5rem;
+}
+
+.cta--compact .cta-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--card-border);
+  color: var(--slate);
+  padding: 1.25rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: none;
+}
+
+.cta--compact .cta-card p {
+  color: var(--slate);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.cta--compact .cta-card a {
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+
+/* Legislation update notice */
+.legislation-note {
+  background: rgba(217, 150, 126, 0.08);
+  border: 1px solid rgba(154, 75, 59, 0.15);
+  border-left: 4px solid var(--accent-strong);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--slate);
+  margin-bottom: 1.5rem;
+}
+
+.legislation-note strong {
+  color: var(--accent-strong);
 }
 
 .resource-note {
